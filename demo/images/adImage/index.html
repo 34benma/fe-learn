@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdImage</title>
+
+  <style>
+    html {
+      box-sizing: border-box;
+      --container-width: 960px;
+      --container-height: 320px;
+      --image-height: 100%;
+      --image-width: 100%;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: #dfe;
+    }
+
+    .container {
+      max-height: var(--container-height);
+      max-width: var(--container-width);
+      margin: 1em auto;
+      border: 0.3em solid rgba(131, 51, 155, 0.815);
+      position: relative;
+
+    }
+
+    .tabs {
+      display: none;
+    }
+
+    input.tabs+label div {
+      position: absolute;
+      background-color: rgba(133, 128, 128, 0.349);
+      opacity: 0.8;
+      filter: Alpha(opacity=80);
+      width: 16em;
+      height: 4.08em;
+      padding: 0.3em;
+      margin: 0.2em;
+    }
+
+    input.tabs:checked+label div {
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0));
+    }
+
+    input.tabs+label dl dt {
+      max-width: var(--container-width);
+      max-height: var(--container-height);
+      float: left;
+      padding-right: 0.8em;
+      padding-top: 0.3em;
+    }
+
+    input.tabs+label dl dd {
+      font-size: 0.88em;
+      color: rgb(238, 238, 238);
+      padding: 0.2em 0.1em;
+
+    }
+
+    input.tabs+label dl dd.title {
+      font-size: 0.92em;
+    }
+
+    .ad-list img {
+      height: 0;
+      width: 0;
+      transition: width 1s, height 1s;
+      display: block;
+    }
+
+    input#tab1:checked~.ad-list img:nth-child(1) {
+      height: var(--image-height);
+      width: var(--image-width);
+    }
+
+    input#tab2:checked~.ad-list img:nth-child(2) {
+      height: var(--image-height);
+      width: var(--image-width);
+    }
+
+    input#tab3:checked~.ad-list img:nth-child(3) {
+      height: var(--image-height);
+      width: var(--image-width);
+    }
+
+    input#tab4:checked~.ad-list img:nth-child(4) {
+      height: var(--image-height);
+      width: var(--image-width);
+    }
+
+    input.tabs+label .bg1 {
+      right: 0;
+      top: 0;
+    }
+
+    input.tabs+label .bg2 {
+      right: 0;
+      top: 65px;
+    }
+
+    input.tabs+label .bg3 {
+      right: 0;
+      top: 130px;
+    }
+
+    input.tabs+label .bg4 {
+      right: 0;
+      top: 195px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+
+    <input type="radio" name="tab" id="tab1" class="tabs" checked=checked>
+    <label for="tab1">
+      <div class="bg1">
+        <dl id="dl1">
+          <dt><img src="images/but1.png" width="40" /></dt>
+          <dd class="title">精心挑选，倾情推荐</dd>
+          <dd>推荐精品应用，享受多彩上网</dd>
+        </dl>
+      </div>
+    </label>
+
+    <input type="radio" name="tab" id="tab2" class="tabs">
+    <label for="tab2">
+      <div class="bg2">
+        <dl id="dl2">
+          <dt><img src="images/but2.png" width="40" /></dt>
+          <dd class="title">精心挑选，倾情推荐</dd>
+          <dd>推荐精品应用，享受多彩上网</dd>
+        </dl>
+      </div>
+    </label>
+
+    <input type="radio" name="tab" id="tab3" class="tabs">
+    <label for="tab3">
+      <div class="bg3">
+        <dl id="dl3">
+          <dt><img src="images/but3.png" width="40" /></dt>
+          <dd class="title">精心挑选，倾情推荐</dd>
+          <dd>推荐精品应用，享受多彩上网</dd>
+        </dl>
+      </div>
+    </label>
+
+    <input type="radio" name="tab" id="tab4" class="tabs">
+    <label for="tab4">
+      <div class="bg4">
+        <dl id="dl4">
+          <dt><img src="images/but4.png" width="40" /></dt>
+          <dd class="title">精心挑选，倾情推荐</dd>
+          <dd>推荐精品应用，享受多彩上网</dd>
+        </dl>
+      </div>
+    </label>
+
+    <div class="ad-list">
+      <img src="images/1.png">
+      <img src="images/2.png">
+      <img src="images/3.png">
+      <img src="images/4.png">
+    </div>
+
+  </div>
+</body>
+
+</html>
