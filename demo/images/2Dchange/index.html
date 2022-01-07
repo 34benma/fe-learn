@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2DChange</title>
+  <style>
+    html {
+      box-sizing: border-box;
+      --scroll-width: 800px;
+      --scroll-heigh: 400px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: #dfe;
+    }
+
+    .container {
+      margin: 0 auto;
+      position: relative;
+      width: var(--scroll-width);
+      height: var(--scroll-heigh);
+      overflow: hidden;
+    }
+
+    .image_list {
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: scroll 10s steps(1, end) 0.5s infinite;
+    }
+
+    .image_list ul {
+      list-style-type: none;
+      display: flex;
+    }
+
+    .image_list img {
+      width: var(--scroll-width);
+      height: var(--scroll-heigh);
+      object-fit: fill;
+      border: 1px solid red;
+    }
+
+    .image_index {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      line-height: 1.5em;
+      text-align: center;
+      font-size: 1.2em;
+      background: hsla(188, 100%, 100%, 0.4);
+      color: red;
+    }
+
+    .image_index>.index {
+      display: inline-block;
+      background: rgba(238, 223, 223, 0.726);
+      width: 1.4em;
+      height: 1.4em;
+      margin: 0 .2em;
+      border-radius: 50%;
+    }
+
+    @keyframes scroll {
+
+      0%,
+      100% {
+        left: 0;
+      }
+
+      20% {
+        left: calc(-1 * var(--scroll-width));
+      }
+
+      40% {
+        left: calc(-2 * var(--scroll-width));
+      }
+
+      60% {
+        left: calc(-3 * var(--scroll-width));
+      }
+
+      80% {
+        left: calc(-4 * var(--scroll-width));
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="image_list">
+      <ul>
+        <li>
+          <figure>
+            <img src="img/1.png">
+            <figcaption>Demo 1</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <img src="img/2.png">
+            <figcaption>Demo 2</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <img src="img/3.png">
+            <figcaption>Demo 3</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <img src="img/44.jpg">
+            <figcaption>Demo 4</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <img src="img/55.jpg">
+            <figcaption>Demo 5</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <img src="img/66.jpg">
+            <figcaption>Demo 6</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <img src="img/77.jpg">
+            <figcaption>Demo 7</figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+    <div class="image_index">
+      <span class="index index_1 active">1</span>
+      <span class="index index_2">2</span>
+      <span class="index index_3">3</span>
+      <span class="index index_4">4</span>
+      <span class="index index_5">5</span>
+      <span class="index index_6">6</span>
+      <span class="index index_7">7</span>
+    </div>
+  </div>
+
+</body>
+
+</html>

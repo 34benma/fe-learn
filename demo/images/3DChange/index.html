@@ -28,74 +28,59 @@
 
     .container {
       margin: 0 auto;
+    }
+
+    .scroll {
       position: relative;
-      width: var(--scroll-width);
-      height: var(--scroll-heigh);
-      overflow: hidden;
+      width: 3 * calc(var(--scroll-width));
     }
 
-    .image_list {
-      position: absolute;
-      top: 0;
-      left: 0;
-      animation: scroll 10s steps(1, end) 0.5s infinite;
-    }
-
-    .image_list ul {
+    .image-list {
       list-style-type: none;
+      position: absolute;
+      overflow: hidden;
+      left: 30%;
       display: flex;
     }
 
-    .image_list img {
-      width: var(--scroll-width);
-      height: var(--scroll-heigh);
-      object-fit: fill;
-      border: 1px solid red;
+    .image-list>li {
+      border: none;
     }
 
-    .image_index {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      line-height: 1.5em;
-      text-align: center;
-      font-size: 1.2em;
-      background: hsla(188, 100%, 100%, 0.4);
-      color: red;
+    .image-list>li:nth-child(1) {
+      transform: translate3d(-120px, 0, 0) scale(0.81);
     }
 
-    .image_index>.index {
-      display: inline-block;
-      background: rgba(238, 223, 223, 0.726);
-      width: 1.4em;
-      height: 1.4em;
-      margin: 0 .2em;
-      border-radius: 50%;
+    .image-list>li:nth-child(2) {
+      transform: translate3d(0px, 0, 0) scale(0.81);
+      transform-origin: 0 50%;
+      opacity: 0.8;
+      z-index: 2;
     }
 
-    @keyframes scroll {
+    .image-list>li:nth-child(3) {
+      transform: translate3d(120px, 0, 0) scale(1);
+      z-index: 3;
+      opacity: 1;
+    }
 
-      0%,
-      100% {
-        left: 0;
-      }
+    .image-list>li:nth-child(4) {
+      transform: translate3d(449px, 0, 0) scale(0.81);
+      transform-origin: 100% 50%;
+      opacity: 0.8;
+      z-index: 2;
+    }
 
-      20% {
-        left: calc(-1 * var(--scroll-width));
-      }
+    .image-list>li:nth-child(5) {
+      transform: translate3d(672px, 0, 0) scale(0.81);
+    }
 
-      40% {
-        left: calc(-2 * var(--scroll-width));
-      }
+    .image-list>li:nth-child(6) {
+      transform: translate3d(896px, 0, 0) scale(0.81);
+    }
 
-      60% {
-        left: calc(-3 * var(--scroll-width));
-      }
-
-      80% {
-        left: calc(-4 * var(--scroll-width));
-      }
+    .image-list>li:nth-child(7) {
+      transform: translate3d(1120px, 0, 0) scale(0.81);
     }
   </style>
 
@@ -104,60 +89,30 @@
 <body>
 
   <div class="container">
-    <div class="image_list">
-      <ul>
+    <div class="scroll">
+      <ul class="image-list">
         <li>
-          <figure>
-            <img src="img/1.png">
-            <figcaption>Demo 1</figcaption>
-          </figure>
+          <img src="img/1.png">
         </li>
         <li>
-          <figure>
-            <img src="img/2.png">
-            <figcaption>Demo 2</figcaption>
-          </figure>
+          <img src="img/2.png">
         </li>
         <li>
-          <figure>
-            <img src="img/3.png">
-            <figcaption>Demo 3</figcaption>
-          </figure>
+          <img src="img/3.png">
         </li>
         <li>
-          <figure>
-            <img src="img/44.jpg">
-            <figcaption>Demo 4</figcaption>
-          </figure>
+          <img src="img/44.jpg">
         </li>
         <li>
-          <figure>
-            <img src="img/55.jpg">
-            <figcaption>Demo 5</figcaption>
-          </figure>
+          <img src="img/55.jpg">
         </li>
         <li>
-          <figure>
-            <img src="img/66.jpg">
-            <figcaption>Demo 6</figcaption>
-          </figure>
+          <img src="img/66.jpg">
         </li>
         <li>
-          <figure>
-            <img src="img/77.jpg">
-            <figcaption>Demo 7</figcaption>
-          </figure>
+          <img src="img/77.jpg">
         </li>
       </ul>
-    </div>
-    <div class="image_index">
-      <span class="index index_1 active">1</span>
-      <span class="index index_2">2</span>
-      <span class="index index_3">3</span>
-      <span class="index index_4">4</span>
-      <span class="index index_5">5</span>
-      <span class="index index_6">6</span>
-      <span class="index index_7">7</span>
     </div>
   </div>
 
