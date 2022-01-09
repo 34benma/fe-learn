@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>big-image</title>
+
+  <style>
+    html {
+      box-sizing: border-box;
+      --container-width: 800px;
+      --container-height: 400px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: #dfe;
+    }
+
+    .container {
+      margin: 1em auto;
+      max-height: var(--container-height);
+      max-width: var(--container-width);
+    }
+
+    div#normal {
+      position: relative;
+      width: 605px;
+      height: 406px;
+    }
+
+    #normal span {
+      position: absolute;
+      background-color: orange;
+      opacity: 0.5;
+      width: 100px;
+      height: 100px;
+      left: 0;
+      top: 0;
+      cursor: move;
+    }
+
+    #big-img {
+      position: absolute;
+      display: none;
+      top: 0;
+      left: 60%;
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    #big-img>img {
+      position: absolute;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div id="normal">
+      <img src="./images/big2.jpg" alt="">
+      <span id="lay"></span>
+    </div>
+    <div id="big-img">
+      <img src="./images/big2.jpg" alt="">
+    </div>
+  </div>
+
+  <script>
+    window.onload = function () {
+      let normal = document.getElementById("normal");
+      let lay = document.getElementById("lay");
+      let bigImg = document.getElementById("big-img");
+      let img = bigImg.getElementsByTagName("img")[0];
+
+      normal.onmouseout = function () {
+        lay.style.display = "none";
+        bigImg.style.display = "none";
+      };
+
+      normal.onmouseover = function () {
+        lay.style.display = "block";
+        bigImg.style.display = "block";
+      }
+
+      normal.onmousemove = function (ev) {
+        ev = ev || window.event;
+
+        let pageX = ev.pageX || scroll.left + ev.clientX;
+        let pageY = ev.pageY || scroll.top + ev.clientY;
+
+        let x = pageX - normal.offsetLeft - lay.offsetWidth / 2;
+        let y = pageY - normal.offsetTop - lay.offsetHeight / 2;
+
+        if (x < 0) {
+          x = 0;
+        }
+
+        if (x >= normal.offsetWidth - lay.offsetWidth) {
+          x = normal.offsetWidth - lay.offsetWidth / 2;
+        }
+        if (y < 0) {
+          y = 0;
+        }
+        if (y >= normal.offsetHeight - lay.offsetHeight) {
+          y = normal.offsetHeight - lay.offsetHeight;
+        }
+
+        lay.style.left = x + "px";
+        lay.style.top = y + "px";
+
+        let scale = 3;
+
+        let left = scale * lay.offsetLeft;
+        let top = scale * lay.offsetTop;
+        img.style.left = -left + "px";
+        img.style.top = -top + "px";
+      };
+    }
+  </script>
+
+</body>
+
+</html>
