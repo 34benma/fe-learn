@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carousel</title>
+
+  <style>
+    html {
+      box-sizing: border-box;
+      --container-width: 1200px;
+      --container-height: 2400px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: #dfe;
+    }
+
+    .container {
+      margin: 1em auto;
+      max-height: var(--container-height);
+      max-width: var(--container-width);
+    }
+
+    .slide {
+      margin: auto;
+      width: 800px;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .slide ul {
+      list-style-type: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      overflow: hidden;
+      animation: scroll 10s steps(1, end) 0.5s infinite;
+    }
+
+    .slide li {
+      flex: 1;
+      width: 800px;
+      height: 300px;
+    }
+
+    .slide li:nth-child(1) {
+      background: url("images/1.jpg") no-repeat;
+    }
+
+    .slide li:nth-child(2) {
+      background: url("images/2.jpg") no-repeat;
+    }
+
+    .slide li:nth-child(3) {
+      background: url("images/3.jpg") no-repeat;
+    }
+
+    .slide li:nth-child(4) {
+      background: url("images/4.jpg") no-repeat;
+    }
+
+    @keyframes scroll {
+
+      0%,
+      100% {
+        left: 0;
+      }
+
+      20% {
+        left: -800px;
+      }
+
+      40% {
+        left: -1600px;
+      }
+
+      60% {
+        left: -2400px;
+      }
+
+      80% {
+        left: -3200px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="slide">
+      <ul class="slide-auto">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>
